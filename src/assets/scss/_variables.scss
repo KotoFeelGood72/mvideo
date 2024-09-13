@@ -13,19 +13,26 @@ $white: #fff;
 $black: #000;
 
 // Custom colors //
-$green: #12B969;
-$blue: #54B6FD;
+$green: #12b969;
+$blue: #54b6fd;
 $dark: #141011;
-$text: #3D3638;
-$gray: #857D7F;
-$light: #F5F5F5;
-$brown: #AF6C4D;
-$red: #E31235;
-$linear: linear-gradient(180deg, rgba(241, 137, 154, 0.40) 0%, rgba(227, 18, 53, 0.40) 100%), #E31235;
+$text: #3d3638;
+$gray: #857d7f;
+$light: #f5f5f5;
+$ulight: #e0e0e0;
+$focus: #857d7f;
+$brown: #af6c4d;
+$red: #e31235;
+$accent: #72091b;
+$linear: linear-gradient(
+    180deg,
+    rgba(241, 137, 154, 0.4) 0%,
+    rgba(227, 18, 53, 0.4) 100%
+  ),
+  #e31235;
 
 // Other
-$brs: 1.2rem;
-
+$brs: 12px;
 
 $header: 17.7rem;
 $footer: 11.3rem;
@@ -36,5 +43,4 @@ $font_1: "Rubik-Light";
 $font_2: "Rubik-Regular";
 $font_3: "Rubik-Medium";
 $font_4: "Rubik-Bold";
-
-$font_size_base: 1.6rem;
+$font_5: "Rubik-Black";

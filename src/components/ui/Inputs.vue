@@ -2,7 +2,12 @@
   <div class="inputs_w">
     <label class="inputs_label" :for="id">{{ label }}</label>
     <div class="inputs">
-      <input :type="type" :placeholder="placeholder" v-model="localValue" :id="id" />
+      <input
+        :type="type"
+        :placeholder="placeholder"
+        v-model="localValue"
+        :id="id"
+      />
     </div>
     <span v-if="error" class="inputs__message">{{ message }}</span>
   </div>
@@ -40,4 +45,28 @@ const localValue = computed({
 });
 </script>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+.inputs_w {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+  input {
+    @include app;
+    width: 100%;
+    border: 1px solid $ulight;
+    padding: 12px 16px;
+    border-radius: 8px;
+    color: $text;
+    transition: all 0.3s ease-in-out;
+    &:focus {
+      border-color: $focus;
+    }
+  }
+}
+
+.inputs_label {
+  font-size: 15px;
+  color: $text;
+}
+</style>

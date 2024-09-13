@@ -27,30 +27,15 @@ const sizes = computed(() => {
 
 <style lang="scss" scoped>
 .heading-1 {
-  // font-size: $heading-1;
+  font-size: 32px;
+  line-height: 40px;
+  text-transform: uppercase;
+  font-family: $font_5;
 }
 .heading-2 {
-  // font-size: $heading-2;
-}
-.heading-3 {
-  // font-size: $heading-3;
-}
-.heading-4 {
-  // font-size: $heading-4;
-}
-.heading-5 {
-  // font-size: $heading-5;
-}
-.heading-6 {
-  // font-size: $heading-6;
-}
-.heading-7 {
-  // font-size: $heading-7;
-}
-.heading-8 {
-  // font-size: $heading-8;
-}
-.heading-9 {
-  // font-size: $heading-9;
+  font-size: 24px;
+  line-height: 32px;
+  text-transform: uppercase;
+  font-family: $font_5;
 }
 </style>
