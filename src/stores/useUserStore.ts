@@ -5,7 +5,7 @@ export const useUserStore = defineStore("user", {
     user: {} as any,
   }),
   actions: {
-    async setUser() {
+    async login() {
       try {
         this.user = { name: "test", id: 2 };
       } catch (error) {

@@ -8,7 +8,7 @@
         <Heading :title="modal.title" :level="2" :size="2" />
         <p v-if="modal.txt">{{ modal.txt }}</p>
         <div class="modal-btn" v-if="modal.btn">
-          <Buttons name="Играть" @click="router.push({ name: 'register' })" />
+          <Buttons name="Играть" @click="handleLogin()" />
         </div>
       </div>
     </div>
@@ -20,8 +20,10 @@ import Heading from "../ui/Heading.vue";
 import Buttons from "../ui/Buttons.vue";
 import { useRouter } from "vue-router";
 import { useModalStore } from "@/stores/useModalStore";
+import { useUserStore } from "@/stores/useUserStore";
 
 const router = useRouter();
+const { login } = useUserStore();
 
 const props = withDefaults(
   defineProps<{
@@ -37,6 +39,11 @@ const props = withDefaults(
 );
 
 const { closeModal } = useModalStore();
+
+async function handleLogin() {
+  await login();
+  await router.push({ name: "register" });
+}
 </script>
 
 <style scoped lang="scss">

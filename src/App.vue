@@ -8,7 +8,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from "vue";
+import { computed, watch } from "vue";
 import DefaultLayout from "@/layouts/DefaultLayout.vue";
 import EmptyLayout from "@/layouts/EmptyLayout.vue";
 import UserLayout from "@/layouts/UserLayout.vue";
@@ -33,6 +33,13 @@ const layoutComponent = computed(() => {
 const isModalActive = computed(() => {
   return modals.value.modalBottom || modals.value.burger;
 });
+
+watch(
+  () => route.fullPath,
+  () => {
+    closeAllModal();
+  }
+);
 </script>
 
 <style lang="scss">

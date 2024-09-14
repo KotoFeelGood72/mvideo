@@ -38,4 +38,10 @@ const sizes = computed(() => {
   text-transform: uppercase;
   font-family: $font_5;
 }
+.heading-3 {
+  font-size: 20px;
+  line-height: 28px;
+  text-transform: uppercase;
+  font-family: $font_5;
+}
 </style>

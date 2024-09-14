@@ -8,9 +8,7 @@
       :class="{ 'is-invalid': isInvalid }"
       @on-change="handleOnChange"
     />
-    <div v-if="isInvalid" class="error">
-      Введён неверный код. Попробуйте снова
-    </div>
+    <div v-if="isInvalid" class="error">Введён неверный код. Попробуйте снова</div>
   </div>
 </template>
 

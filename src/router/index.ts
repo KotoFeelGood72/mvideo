@@ -7,7 +7,7 @@ const routes = [
     component: () => import("../views/welcome.vue"),
     meta: {
       layout: "empty",
-      requiresAuth: true,
+      requiresAuth: false,
     },
   },
   {
@@ -33,7 +33,8 @@ const routes = [
     name: "start",
     component: () => import("../views/StartGame.vue"),
     meta: {
-      layout: "empty",
+      title: 'Как играть',
+      layout: "default",
       requiresAuth: true,
     },
   },
@@ -44,18 +45,29 @@ const router = createRouter({
   routes,
 });
 
+// router.beforeEach((to, from, next) => {
+//   const isAuthenticated = !!localStorage.getItem("user");
+//   if (
+//     to.matched.some((record) => record.meta.requiresAuth) &&
+//     !isAuthenticated
+//   ) {
+//     next({ path: "/register" });
+//   } else if (to.path === "/register" && isAuthenticated) {
+//     next({ path: "/start-game" });
+//   } else {
+//     next();
+//   }
+// });
+
 router.beforeEach((to, from, next) => {
   const isAuthenticated = !!localStorage.getItem("user");
-  if (
-    to.matched.some((record) => record.meta.requiresAuth) &&
-    !isAuthenticated
-  ) {
-    next({ path: "/register" });
-  } else if (to.path === "/register" && isAuthenticated) {
-    next({ path: "/start-game" });
+
+  if (to.matched.some((record) => record.meta.requiresAuth) && !isAuthenticated) {
+    next({ path: '/register' });
+  } else if ((to.path === '/register' || to.path === '/login' || to.path === '/confirm') && isAuthenticated) {
+    next({ path: '/' });
   } else {
     next();
   }
 });
-
 export default router;
