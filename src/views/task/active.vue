@@ -1,7 +1,52 @@
 <template>
-  <div class=""></div>
+  <div class="task-list">
+    <Task
+      v-for="(item, i) in tasks"
+      :key="'active-task-item' + i"
+      :task="item"
+    />
+  </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { ref } from "vue";
+import Task from "@/components/ui/card/Task.vue";
 
-<style scoped lang="scss"></style>
+const tasks = ref([
+  {
+    headtitle: "осталось 13 дней 8 часов",
+    title: "Совершить покупку бренда Carrera",
+    sale: "x 2м2 за покупку!",
+    img: "/assets/img/task-1.png",
+    color: "sea",
+  },
+  {
+    headtitle: "осталось 6 дней 8 часов",
+    title: "Кликните 10 000 раз и получите бустер",
+    sale: "+ 0,05 м2",
+    img: "/assets/img/task-2.png",
+    color: "red",
+  },
+  {
+    headtitle: "осталось 6 дней 8 часов",
+    title: "Совершить покупку любого холодильника",
+    sale: "х2 м2",
+    img: "/assets/img/task-3.png",
+    color: "blue",
+  },
+  {
+    title: "Покупка фена Rowenta Karl Lagerfeld Pro Stylist CV888LF0",
+    sale: "+ 5 м2",
+    img: "/assets/img/task-4.png",
+    color: "green",
+  },
+]);
+</script>
+
+<style scoped lang="scss">
+.task-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+</style>

@@ -13,6 +13,7 @@ import { computed, watch } from "vue";
 import DefaultLayout from "@/layouts/DefaultLayout.vue";
 import EmptyLayout from "@/layouts/EmptyLayout.vue";
 import UserLayout from "@/layouts/UserLayout.vue";
+import GameLayout from "./layouts/GameLayout.vue";
 import { useRoute } from "vue-router";
 import { useModalStoreRefs, useModalStore } from "./stores/useModalStore";
 import { useUserStore, useUserStoreRefs } from "./stores/useUserStore";
@@ -29,6 +30,8 @@ const layoutComponent = computed(() => {
       return UserLayout;
     case "empty":
       return EmptyLayout;
+    case "game":
+      return GameLayout;
     default:
       return DefaultLayout;
   }

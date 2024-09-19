@@ -38,6 +38,25 @@ const routes = [
       requiresAuth: true,
     },
   },
+  {
+    path: "/home",
+    name: "home",
+    component: () => import("../views/Home.vue"),
+    meta: {
+      layout: "game",
+      requiresAuth: true,
+    },
+  },
+  {
+    path: "/task",
+    name: "task",
+    component: () => import("../views/task/index.vue"),
+    meta: {
+      title: "Еженедельные задания",
+      layout: "default",
+      requiresAuth: true,
+    },
+  },
 ];
 
 const router = createRouter({

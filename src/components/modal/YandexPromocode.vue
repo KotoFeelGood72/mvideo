@@ -1,9 +1,7 @@
 <template>
   <div class="yandex">
     <div class="yandex__main">
-      <div class="close" @click="closeModal('YandexPromocode')">
-        <Icons icon="weui:close-outlined" :size="24" />
-      </div>
+      <ModalHeader modalName="YandexPromocode" route="/home" />
       <div class="yandex__img">
         <img src="@/assets/img/yandex.svg" />
       </div>
@@ -32,9 +30,8 @@
 import Heading from "../ui/Heading.vue";
 import Promocode from "../ui/Promocode.vue";
 import Notice from "../ui/Notice.vue";
+import ModalHeader from "../ui/ModalHeader.vue";
 import { useModalStore } from "@/stores/useModalStore";
-
-const { closeModal } = useModalStore();
 </script>
 
 <style scoped lang="scss">
@@ -62,19 +59,6 @@ const { closeModal } = useModalStore();
 
     :deep(h2, p) {
       max-width: 300px;
-    }
-  }
-}
-
-.close {
-  @include flex-end;
-  transition: all 0.3s ease-in-out;
-  cursor: pointer;
-  width: 100%;
-  padding: 13px 16px;
-  &:hover {
-    :deep(svg) {
-      color: $red;
     }
   }
 }
