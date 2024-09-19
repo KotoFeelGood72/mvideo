@@ -27,6 +27,7 @@ const route = useRoute();
 .game {
   height: 100%;
   position: relative;
+  background-color: $light;
 
   &:before {
     position: absolute;
@@ -35,11 +36,7 @@ const route = useRoute();
     width: 100%;
     height: 144px;
     content: "";
-    background: linear-gradient(
-      180deg,
-      #e31336 10.99%,
-      rgba(227, 19, 54, 0) 99.84%
-    );
+    background: linear-gradient(180deg, #e31336 10.99%, rgba(227, 19, 54, 0) 99.84%);
   }
 }
 .page-head {

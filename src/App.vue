@@ -13,6 +13,7 @@ import { computed, watch } from "vue";
 import DefaultLayout from "@/layouts/DefaultLayout.vue";
 import EmptyLayout from "@/layouts/EmptyLayout.vue";
 import UserLayout from "@/layouts/UserLayout.vue";
+import TaskLayout from "./layouts/TaskLayout.vue";
 import GameLayout from "./layouts/GameLayout.vue";
 import { useRoute } from "vue-router";
 import { useModalStoreRefs, useModalStore } from "./stores/useModalStore";

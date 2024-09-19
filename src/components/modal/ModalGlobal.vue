@@ -15,6 +15,7 @@ const AsyncModalAlertSuccess = defineAsyncComponent(
 const AsyncModalYandexPromocode = defineAsyncComponent(
   () => import("./YandexPromocode.vue")
 );
+const AsyncModalTask = defineAsyncComponent(() => import("./ModalTask.vue"));
 
 const { modals } = useModalStoreRefs();
 const { closeModal } = useModalStore();
@@ -43,6 +44,8 @@ const activeModalComponent = computed(() => {
           return AsyncModalAlertSuccess;
         case "YandexPromocode":
           return AsyncModalYandexPromocode;
+        case "Task":
+          return AsyncModalTask;
         default:
           return AsyncModalAlert;
       }

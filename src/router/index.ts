@@ -48,6 +48,25 @@ const routes = [
     },
   },
   {
+    path: "/result",
+    name: "result",
+    component: () => import("../views/Result.vue"),
+    meta: {
+      layout: "empty",
+      requiresAuth: true,
+    },
+  },
+  {
+    path: "/account",
+    name: "account",
+    component: () => import("../views/Account.vue"),
+    meta: {
+      layout: "default",
+      requiresAuth: true,
+      title: 'Личный кабинет'
+    },
+  },
+  {
     path: "/task",
     name: "task",
     component: () => import("../views/task/index.vue"),

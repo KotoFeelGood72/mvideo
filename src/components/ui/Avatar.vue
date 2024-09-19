@@ -1,5 +1,5 @@
 <template>
-  <div class="avatar">
+  <div class="avatar" @click="router.push({ name: 'account' })">
     <div class="avatar__img">
       <img src="@/assets/img/person.png" class="full" />
     </div>
@@ -7,7 +7,11 @@
   </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { useRouter } from "vue-router";
+
+const router = useRouter();
+</script>
 
 <style scoped lang="scss">
 .avatar {

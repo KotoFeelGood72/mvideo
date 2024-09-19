@@ -21,6 +21,7 @@
     <div class="tab_link__contents">
       <component :is="currentComponent"></component>
     </div>
+    <BottomNav :fulls="true" />
   </div>
 </template>
 
@@ -28,6 +29,7 @@
 import { ref, computed } from "vue";
 import active from "./active.vue";
 import complete from "./complete.vue";
+import BottomNav from "@/components/ui/nav/BottomNav.vue";
 
 const activeTab = ref("active");
 
@@ -38,12 +40,15 @@ const currentComponent = computed(() => {
 
 <style scoped lang="scss">
 .task {
-  padding: 16px 0;
+  padding: 16px 0 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  height: 100%;
 }
 .task_head {
   display: flex;
   flex-direction: column;
-  margin-bottom: 12px;
 }
 
 .tab__links {
@@ -65,5 +70,11 @@ const currentComponent = computed(() => {
 .tab_link__item.active {
   background-color: $dark;
   color: $white;
+}
+
+.tab_link__contents {
+  max-height: calc(100% - 124px);
+  height: 100%;
+  overflow-y: auto;
 }
 </style>

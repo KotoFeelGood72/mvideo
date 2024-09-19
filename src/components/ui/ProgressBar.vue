@@ -2,10 +2,7 @@
   <div class="progress_bar__w">
     <Heading :title="`${level} уровень`" :level="2" :size="2" />
     <div class="progress-bar">
-      <div
-        class="progress-bar__fill"
-        :style="{ width: progressPercentage + '%' }"
-      ></div>
+      <div class="progress-bar__fill" :style="{ width: progressPercentage + '%' }"></div>
     </div>
   </div>
 </template>
@@ -27,18 +24,23 @@ const progressPercentage = computed(() => {
 </script>
 
 <style scoped lang="scss">
+.progress_bar__w {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
 .progress-bar {
   width: 100%;
-  background-color: #e0e0e0;
+  height: 12px;
+  background-color: $white;
   border-radius: 8px;
-  overflow: hidden;
-  height: 30px;
-  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
 }
 
 .progress-bar__fill {
-  background-color: #4caf50;
+  background: linear-gradient(180deg, #ff5252 0%, #f00 100%),
+    var(--buttons-accent-default, #f00);
   height: 100%;
   transition: width 0.3s ease;
+  border-radius: 8px;
 }
 </style>

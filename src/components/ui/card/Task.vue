@@ -1,5 +1,5 @@
 <template>
-  <div class="task" :class="[isColors]">
+  <div class="task" :class="[isColors]" @click="openModal('Task')">
     <div class="task__content">
       <div class="task_headtitle">{{ task.headtitle }}</div>
       <div class="task_title">{{ task.title }}</div>
@@ -13,10 +13,13 @@
 
 <script setup lang="ts">
 import { computed } from "vue";
+import { useModalStore } from "@/stores/useModalStore";
 
 const props = defineProps<{
   task: any;
 }>();
+
+const { openModal } = useModalStore();
 
 const isColors = computed(() => {
   switch (props.task.color) {
@@ -36,7 +39,7 @@ const isColors = computed(() => {
 
 <style scoped lang="scss">
 .task {
-  @include flex-start;
+  @include flex-space;
   border-radius: 12px;
   padding: 16px;
   color: $white;
@@ -46,6 +49,13 @@ const isColors = computed(() => {
   }
   &.red-color {
     background-color: $red;
+
+    .task__img {
+      img {
+        max-width: 72px;
+        min-width: 72px;
+      }
+    }
   }
   &.blue-color {
     background-color: $dblue;
@@ -56,17 +66,18 @@ const isColors = computed(() => {
 }
 
 .task__content {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
+  max-width: 204px;
 }
 
 .task__img {
-  width: 132px;
+  min-width: 132px;
+  width: 100%;
+  max-width: 132px;
   @include flex-center;
   img {
     width: 100%;
     height: 100%;
+    object-fit: contain;
   }
 }
 
@@ -79,6 +90,7 @@ const isColors = computed(() => {
 .task_title {
   font-size: 16px;
   font-family: $font_4;
+  padding: 16px 0;
 }
 
 .task_sale {
@@ -87,5 +99,7 @@ const isColors = computed(() => {
   font-family: $font_4;
   text-transform: uppercase;
   display: inline-flex;
+  border-radius: 12px;
+  letter-spacing: 1px;
 }
 </style>

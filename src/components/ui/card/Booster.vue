@@ -10,4 +10,15 @@ const props = defineProps<{
 }>();
 </script>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+.booster {
+  @include flex-center;
+  padding: 8px;
+  background-color: $white;
+  border-radius: 12px;
+  img {
+    width: 28px;
+    height: 28px;
+  }
+}
+</style>

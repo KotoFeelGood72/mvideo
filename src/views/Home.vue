@@ -24,4 +24,16 @@ const boosterList = ref([
 ]);
 </script>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+.action {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: -16px;
+}
+
+.home {
+  padding-bottom: 16px;
+}
+</style>

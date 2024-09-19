@@ -5,6 +5,7 @@ interface ModalsState {
   AlertSuccess: boolean;
   Burger: boolean;
   YandexPromocode: boolean;
+  Task: boolean;
 }
 
 export const useModalStore = defineStore("modal", {
@@ -14,6 +15,7 @@ export const useModalStore = defineStore("modal", {
       AlertSuccess: false,
       Burger: false,
       YandexPromocode: false,
+      Task: false,
     },
   }),
   actions: {
