@@ -24,15 +24,6 @@
         </div>
       </div>
     </div>
-    <transition name="slide-up">
-      <ModalBottom
-        v-if="modals.modalBottom"
-        :modal="{
-          title: 'Не удалось отправить код',
-          txt: 'Попробуйте повторить попытку позже',
-        }"
-      />
-    </transition>
   </div>
 </template>
 
@@ -41,7 +32,6 @@ import Heading from "@/components/ui/Heading.vue";
 import Buttons from "@/components/ui/Buttons.vue";
 import Inputs from "@/components/ui/Inputs.vue";
 import InputsPhone from "@/components/ui/InputsPhone.vue";
-import ModalBottom from "@/components/modal/ModalBottom.vue";
 import { useModalStore, useModalStoreRefs } from "@/stores/useModalStore";
 import { useRouter } from "vue-router";
 import { ref } from "vue";
@@ -58,10 +48,9 @@ const formData = ref<formData>({
 
 const router = useRouter();
 const { openModal } = useModalStore();
-const { modals } = useModalStoreRefs();
 
 async function getCode() {
-  // openModal("modalBottom");
+  // openModal("AlertCode");
   router.push({ name: "confirm" });
 }
 </script>

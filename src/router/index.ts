@@ -33,7 +33,7 @@ const routes = [
     name: "start",
     component: () => import("../views/StartGame.vue"),
     meta: {
-      title: 'Как играть',
+      title: "Как играть",
       layout: "default",
       requiresAuth: true,
     },
@@ -45,29 +45,27 @@ const router = createRouter({
   routes,
 });
 
-// router.beforeEach((to, from, next) => {
-//   const isAuthenticated = !!localStorage.getItem("user");
-//   if (
-//     to.matched.some((record) => record.meta.requiresAuth) &&
-//     !isAuthenticated
-//   ) {
-//     next({ path: "/register" });
-//   } else if (to.path === "/register" && isAuthenticated) {
-//     next({ path: "/start-game" });
-//   } else {
-//     next();
-//   }
-// });
-
 router.beforeEach((to, from, next) => {
   const isAuthenticated = !!localStorage.getItem("user");
 
-  if (to.matched.some((record) => record.meta.requiresAuth) && !isAuthenticated) {
-    next({ path: '/register' });
-  } else if ((to.path === '/register' || to.path === '/login' || to.path === '/confirm') && isAuthenticated) {
-    next({ path: '/' });
+  if (
+    to.matched.some((record) => record.meta.requiresAuth) &&
+    !isAuthenticated
+  ) {
+    // Если требуется авторизация и пользователь не авторизован
+    next({ path: "/register" });
+  } else if (
+    (to.path === "/register" ||
+      to.path === "/login" ||
+      to.path === "/confirm") &&
+    isAuthenticated
+  ) {
+    next({ path: "/start-game" });
+  } else if (to.path === "/" && isAuthenticated) {
+    next({ path: "/start-game" });
   } else {
     next();
   }
 });
+
 export default router;

@@ -33,7 +33,7 @@
         </div>
       </div>
     </div>
-    <transition name="slide-up">
+    <!-- <transition name="slide-up">
       <ModalBottom
         v-if="modals.modalBottom"
         :modal="{
@@ -41,7 +41,7 @@
           btn: true,
         }"
       />
-    </transition>
+    </transition> -->
   </div>
 </template>
 
@@ -50,7 +50,7 @@ import Heading from "@/components/ui/Heading.vue";
 import InputOtp from "@/components/ui/InputOtp.vue";
 import Buttons from "@/components/ui/Buttons.vue";
 import { useModalStore, useModalStoreRefs } from "@/stores/useModalStore";
-import ModalBottom from "@/components/modal/ModalBottom.vue";
+// import ModalBottom from "@/components/modal/ModalBottom.vue";
 import { ref, watch, onMounted, onBeforeUnmount } from "vue";
 
 const code = ref<string>("");
@@ -88,7 +88,8 @@ const checkCode = (inputCode: string) => {
 
   isInvalid.value = false;
 
-  openModal("modalBottom");
+  // openModal("modalBottom");
+  openModal("AlertSuccess");
 
   if (!isTimerActive.value) {
     console.log("Код отправлен!");

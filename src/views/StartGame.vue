@@ -8,20 +8,20 @@
           </div>
           <div class="start__content">
             <div class="start__head">
-              <Heading title="Кликай на квартиру " />
+              <Heading title="Кликай на квартиру" />
               <p>и увеличивай шансы выиграть одну из 11 квартир в Москве!</p>
             </div>
             <div class="start__body">
               <Heading title="Правила" :level="3" :size="3" />
               <ol class="start_body__list">
                 <li>
-                  Совершай покупки в М.Видео - Эльдорадо и копи м2 за каждые 5000 руб в
-                  чеке!
+                  Совершай покупки в М.Видео - Эльдорадо и копи м2 за каждые
+                  5000 руб в чеке!
                 </li>
                 <li>Выполняй задания и получай еще больше м2</li>
                 <li>
-                  Кликай на квартиру, чтобы заработать больше м2 и участвуй в розыгрыше
-                  квартир каждую неделю!
+                  Кликай на квартиру, чтобы заработать больше м2 и участвуй в
+                  розыгрыше квартир каждую неделю!
                 </li>
               </ol>
             </div>
@@ -30,7 +30,7 @@
             </div>
           </div>
         </div>
-        <Buttons name="Играть" />
+        <Buttons name="Играть" @click="nextStep()" />
       </div>
     </div>
   </div>
@@ -39,6 +39,15 @@
 <script setup lang="ts">
 import Heading from "@/components/ui/Heading.vue";
 import Buttons from "@/components/ui/Buttons.vue";
+import { useRouter } from "vue-router";
+import { useModalStore } from "@/stores/useModalStore";
+
+const { openModal } = useModalStore();
+const router = useRouter();
+
+async function nextStep() {
+  openModal("YandexPromocode");
+}
 </script>
 
 <style scoped lang="scss">
@@ -50,6 +59,7 @@ import Buttons from "@/components/ui/Buttons.vue";
 }
 .start__img {
   width: 100%;
+  height: 200px;
 }
 
 .start_main__w {
@@ -58,12 +68,14 @@ import Buttons from "@/components/ui/Buttons.vue";
   justify-content: space-between;
   gap: 16px;
   height: 100%;
+  padding: 16px 0;
 }
 
 .start_main {
   border-radius: $brs;
   overflow: hidden;
   background-color: $light;
+  flex-grow: 1;
 }
 
 .start__content {

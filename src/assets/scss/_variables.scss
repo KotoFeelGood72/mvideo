@@ -22,14 +22,9 @@ $light: #f5f5f5;
 $ulight: #e0e0e0;
 $focus: #857d7f;
 $brown: #af6c4d;
-$red: #e31235;
-$accent: #72091b;
-$linear: linear-gradient(
-    180deg,
-    rgba(241, 137, 154, 0.4) 0%,
-    rgba(227, 18, 53, 0.4) 100%
-  ),
-  #e31235;
+$red: #ff0000;
+$accent: #b80000;
+$linear: linear-gradient(180deg, #ff858566, #ff000066), #e31235;
 
 // Other
 $brs: 12px;
@@ -39,8 +34,13 @@ $footer: 11.3rem;
 
 $font_path: "@/assets/fonts/";
 
-$font_1: "Rubik-Light";
-$font_2: "Rubik-Regular";
-$font_3: "Rubik-Medium";
-$font_4: "Rubik-Bold";
-$font_5: "Rubik-Black";
+$font_1: "TTCommons-Light";
+$font_2: "TTCommons-Regular";
+$font_3: "TTCommons-Medium";
+$font_4: "TTCommons-DemiBold";
+$font_5: "TTCommons-Bold";
+$font_6: "TTCommons-ExtraBold";
+
+.p16 {
+  padding: 16px;
+}

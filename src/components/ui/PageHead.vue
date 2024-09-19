@@ -28,7 +28,7 @@ const props = defineProps<{
 
   p {
     font-size: 20px;
-    font-family: $font_3;
+    font-family: $font_5;
   }
 }
 

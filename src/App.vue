@@ -2,8 +2,9 @@
   <component :is="layoutComponent">
     <router-view />
     <transition name="fade-bg">
-      <div v-if="isModalActive" class="page-bg" @click="closeAllModal"></div>
+      <div v-if="isModalActive" class="page-bg" @click="closeAllModals"></div>
     </transition>
+    <ModalGlobal />
   </component>
 </template>
 
@@ -14,10 +15,13 @@ import EmptyLayout from "@/layouts/EmptyLayout.vue";
 import UserLayout from "@/layouts/UserLayout.vue";
 import { useRoute } from "vue-router";
 import { useModalStoreRefs, useModalStore } from "./stores/useModalStore";
+import { useUserStore, useUserStoreRefs } from "./stores/useUserStore";
+import ModalGlobal from "./components/modal/ModalGlobal.vue";
 
 const route = useRoute();
 const { modals } = useModalStoreRefs();
-const { closeAllModal } = useModalStore();
+const { closeAllModals } = useModalStore();
+const { user } = useUserStoreRefs();
 
 const layoutComponent = computed(() => {
   switch (route.meta.layout) {
@@ -31,13 +35,13 @@ const layoutComponent = computed(() => {
 });
 
 const isModalActive = computed(() => {
-  return modals.value.modalBottom || modals.value.burger;
+  return Object.values(modals.value).some((isActive) => isActive);
 });
 
 watch(
   () => route.fullPath,
   () => {
-    closeAllModal();
+    closeAllModals();
   }
 );
 </script>
@@ -84,6 +88,7 @@ html {
 
   @include bp($point_2) {
     font-size: 10px;
+    line-height: 20px;
   }
   &::-webkit-scrollbar-track {
     background-color: $black;
